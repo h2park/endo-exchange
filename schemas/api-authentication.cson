@@ -1,0 +1,18 @@
+type: "object"
+properties:
+  hostname:
+    title: "Exchange Hostname"
+    type: "string"
+    minLength: 1
+  domain:
+    title: "Domain"
+    type: "string"
+    minLength: 0
+  username:
+    title: "Username"
+    type: "string"
+    minLength: 1
+  password:
+    title: "Password"
+    type: "string"
+    minLength: 1
