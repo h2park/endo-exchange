@@ -27,15 +27,23 @@ class CreateCalendarItem
     #   itemLocation: 'Conf. Octoblu (Tempe)'
     # }
 
-    @bourse.createItem data, (error, response) =>
-      return callback error if error?
+    @bourse.createItem data, (error, results) =>
+      return callback @_userError(422, 'data is required') unless data?
+      return callback @_userError(422, 'Subject is required') unless data.itemSubject?
+      return callback @_userError(422, 'Body is required') unless data.itemBody?
+      return callback @_userError(422, 'Start time is required') unless data.itemStart?
+      return callback @_userError(422, 'End time is required') unless data.itemEnd?
+      return callback @_userError(422, 'Attendees are required') unless data.itemAttendees?
+      return callback @_userError(422, 'Location is required') unless data.itemLocation?
       console.log('data: ', data)
-      console.log('create Item Res: ', response)
+      console.log('create Item res: ', results)
+      console.log('create Item res obj: ', results.Envelope.Body.CreateItemResponse)
       return callback null, {
         metadata:
           code: 200
           status: http.STATUS_CODES[200]
-        data: response
+        # data: @_processResults results
+        data: results
       }
 
   # _processResult: (result) =>

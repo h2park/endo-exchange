@@ -11,7 +11,7 @@
         'itemSendTo',
         'itemSubject',
         'itemBody',
-        'itemReminder',
+        'itemAttendees',
         'itemStart',
         'itemEnd',
         'itemLocation'
@@ -23,8 +23,16 @@
           description: 'Timezone'
         itemSendTo:
           type: 'string'
-          title: 'Send do'
-          description: 'Send to'
+          title: 'Send to'
+          description: 'Configure how meeting invitations or cancellations are handled when a meeting is updated'
+          enum: [
+            'SendOnlyToAll'
+            'SendToNone'
+            'SendOnlyToChanged'
+            'SendToAllAndSaveCopy'
+            'SendToChangedAndSaveCopy'
+          ]
+          default: 'SendOnlyToAll'
         itemSubject:
           type: 'string'
           title: 'Subject'
@@ -33,6 +41,13 @@
           type: 'string'
           title: 'Body'
           description: 'Body'
+        itemAttendees:
+          title: 'Attendees'
+          type: 'array'
+          items:
+            format: 'email'
+            title: 'Email'
+            type: 'string'
         itemReminder:
           type: 'string'
           title: 'Reminder'
