@@ -1,15 +1,52 @@
 {
   type: 'object'
-  title: 'List Events by User'
-  'x-group-name': 'User Events'
+  title: 'Create Calendar Item'
+  'x-group-name': 'createItem'
   required: ['data']
   properties:
     data:
       type: 'object'
-      required: ['username']
+      required: [
+        'itemTimeZone',
+        'itemSendTo',
+        'itemSubject',
+        'itemBody',
+        'itemReminder',
+        'itemStart',
+        'itemEnd',
+        'itemLocation'
+      ]
       properties:
-        username:
+        itemTimeZone:
           type: 'string'
-          title: 'Username'
-          description: 'Github username or organization name'
+          title: 'Timezone'
+          description: 'Timezone'
+        itemSendTo:
+          type: 'string'
+          title: 'Send do'
+          description: 'Send to'
+        itemSubject:
+          type: 'string'
+          title: 'Subject'
+          description: 'Subject'
+        itemBody:
+          type: 'string'
+          title: 'Body'
+          description: 'Body'
+        itemReminder:
+          type: 'string'
+          title: 'Reminder'
+          description: 'Reminder'
+        itemStart:
+          type: 'string'
+          title: 'Start time'
+          description: 'Start time'
+        itemEnd:
+          type: 'string'
+          title: 'End time'
+          description: 'End time'
+        itemLocation:
+          type: 'string'
+          title: 'Location'
+          description: 'Location'
 }

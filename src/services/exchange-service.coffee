@@ -1,12 +1,7 @@
 _ = require 'lodash'
+Bourse = require 'bourse'
 
-AuthenticatedRequest = require './authenticated-request'
 ExchangeStream = require '../streams/exchange-stream'
-
-getStreamingEventsRequest = require '../templates/getStreamingEventsRequest'
-getSubscriptionRequest    = require '../templates/getSubscriptionRequest'
-getUserSettingsRequest    = require '../templates/getUserSettingsRequest'
-getCalendarRequest        = require '../templates/getCalendarRequest'
 
 SUBSCRIPTION_ID_PATH = 'Envelope.Body.SubscribeResponse.ResponseMessages.SubscribeResponseMessage.SubscriptionId'
 
@@ -20,10 +15,10 @@ class Exchange
     port ?= 443
 
     @connectionOptions = {protocol, hostname, port, @username, @password}
-    @authenticatedRequest = new AuthenticatedRequest @connectionOptions
+    @bourse = new Bourse @connectionOptions
 
   getCalendar: ({distinguisedFolderId}, callback) =>
-    @authenticatedRequest.getOpenEwsRequest body: getCalendarRequest, (error, response) =>
+    @bourse.getCalendar {distinguisedFolderId}, (error, response) =>
       return callback error if error?
       return callback null, {
         metadata:
@@ -31,33 +26,5 @@ class Exchange
           status: http.STATUS_CODES[200]
         data: response
         }
-
-  getStreamingEvents: ({distinguisedFolderId}, callback) =>
-    @_getSubscriptionId {distinguisedFolderId}, (error, subscriptionId) =>
-      return callback error if error?
-
-      @authenticatedRequest.getOpenEwsRequest body: getStreamingEventsRequest({ subscriptionId }), (error, request) =>
-        return callback error if error?
-        return callback null, new ExchangeStream {@connectionOptions, request}
-
-
-  whoami: (callback) =>
-    @authenticatedRequest.doAutodiscover body: getUserSettingsRequest({@username}), (error, response) =>
-      return callback error if error?
-      @_parseUserSettingsResponse response, callback
-
-  _getSubscriptionId: ({distinguisedFolderId}, callback) =>
-    @authenticatedRequest.doEws body: getSubscriptionRequest({distinguisedFolderId}), (error, response) =>
-      return callback error if error
-      return callback null, _.get(response, SUBSCRIPTION_ID_PATH)
-
-  _parseUserSettingsResponse: (response, callback) =>
-    UserResponse = _.get response, 'Envelope.Body.GetUserSettingsResponseMessage.Response.UserResponses.UserResponse'
-    UserSettings = _.get UserResponse, 'UserSettings.UserSetting'
-
-    name = _.get _.find(UserSettings, Name: 'UserDisplayName'), 'Value'
-    id   = _.get _.find(UserSettings, Name: 'UserDeploymentId'), 'Value'
-
-    return callback null, { name, id }
 
 module.exports = Exchange

@@ -1,5 +1,12 @@
 {
   angular: [
-    { key: 'data.username' }
+    { key: 'data.itemTimeZone' }
+    { key: 'data.itemSendTo' }
+    { key: 'data.itemSubject' }
+    { key: 'data.itemBody' }
+    { key: 'data.itemReminder' }
+    { key: 'data.itemStart' }
+    { key: 'data.itemEnd' }
+    { key: 'data.itemLocation' }
   ]
 }
