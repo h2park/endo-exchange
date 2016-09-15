@@ -1,0 +1,24 @@
+{
+  type: 'object'
+  title: 'Delete Calendar Item'
+  'x-group-name': 'Delete'
+  required: ['data']
+  properties:
+    data:
+      type: 'object'
+      required: ['Id', 'changeKey', 'cancelReason']
+      properties:
+        Id:
+          type: 'string'
+          title: 'Item Id'
+          description: 'Id of your Item obtained from getItems'
+        changeKey:
+          type: 'string'
+          title: 'Change Key'
+          description: 'Change Key of your Item obtained from getItems'
+        cancelReason:
+          type: 'string'
+          title: 'Cancel Message'
+          description: 'Reason for cancelling the meeting'
+          default: ''
+}
