@@ -21,6 +21,7 @@
           type: 'string'
           title: 'Timezone'
           description: 'Timezone'
+          default: 'Pacific Standard Time'
         itemSendTo:
           type: 'string'
           title: 'Send to'
@@ -51,15 +52,18 @@
         itemReminder:
           type: 'string'
           title: 'Reminder'
-          description: 'Reminder time and date range reminder for your meeting in UTC'
+          description: 'Reminder time and date for your meeting in UTC'
+          default: '2016-09-01T00:00:00Z'
         itemStart:
           type: 'string'
           title: 'Start time'
           description: 'Start time and date of your meeting in UTC'
+          default: '2016-09-01T00:00:00Z'
         itemEnd:
           type: 'string'
           title: 'End time'
           description: 'End time and date of your meeting in UTC'
+          default: '2016-09-10T00:00:00Z'
         itemLocation:
           type: 'string'
           title: 'Location'

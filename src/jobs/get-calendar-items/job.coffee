@@ -16,11 +16,10 @@ class GetCalendarItems
       return callback @_userError(422, 'data is required') unless data?
       ID = results.Envelope.Body.GetFolderResponse.ResponseMessages.GetFolderResponseMessage.Folders.CalendarFolder.FolderId.$.Id
       KEY = results.Envelope.Body.GetFolderResponse.ResponseMessages.GetFolderResponseMessage.Folders.CalendarFolder.FolderId.$.ChangeKey
-      @bourse.getItems ID, KEY, (error, results) =>
+      { maxEntries, startDate, endDate } = data
+      @bourse.getItems ID, KEY, maxEntries, startDate, endDate, (error, results) =>
         return callback error if error?
-
         processedResults = results.Envelope.Body.FindItemResponse.ResponseMessages.FindItemResponseMessage.RootFolder
-
         return callback null, {
           metadata:
             code: 200

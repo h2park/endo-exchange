@@ -13,4 +13,19 @@
           title: 'Folder Id'
           default: 'calendar'
           readOnly: true
+        maxEntries:
+          type: 'integer'
+          title: 'Max Entries'
+          description: 'The maximum number of items to return'
+          default: 5
+        startDate:
+          type: 'string'
+          title: 'Start Date'
+          description: 'Return entries starting from this time'
+          default: '2016-09-01T00:00:00Z'
+        endDate:
+          type: 'string'
+          title: 'End Date'
+          description: 'Return entries ending at this time'
+          default: '2016-09-10T00:00:00Z'
 }
