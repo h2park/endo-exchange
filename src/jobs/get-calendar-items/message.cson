@@ -1,0 +1,16 @@
+{
+  type: 'object'
+  title: 'Get Calendar Items'
+  'x-group-name': 'Get'
+  required: ['data']
+  properties:
+    data:
+      type: 'object'
+      required: ['distinguisedFolderId']
+      properties:
+        distinguisedFolderId:
+          type: 'string'
+          title: 'Folder Id'
+          default: 'calendar'
+          readOnly: true
+}

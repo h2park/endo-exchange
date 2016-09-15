@@ -1,7 +1,7 @@
 {
   type: 'object'
   title: 'Create Calendar Item'
-  'x-group-name': 'createItem'
+  'x-group-name': 'Set'
   required: ['data']
   properties:
     data:

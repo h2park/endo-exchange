@@ -27,7 +27,6 @@ class CreateCalendarItem
         data: results
       }
 
-
   _userError: (code, message) =>
     error = new Error message
     error.code = code
