@@ -1,8 +1,6 @@
 _ = require 'lodash'
 Bourse = require 'bourse'
 
-ExchangeStream = require '../streams/exchange-stream'
-
 SUBSCRIPTION_ID_PATH = 'Envelope.Body.SubscribeResponse.ResponseMessages.SubscribeResponseMessage.SubscriptionId'
 
 class Exchange

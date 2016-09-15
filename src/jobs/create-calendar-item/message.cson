@@ -51,15 +51,15 @@
         itemReminder:
           type: 'string'
           title: 'Reminder'
-          description: 'Reminder'
+          description: 'Reminder time and date range reminder for your meeting in UTC'
         itemStart:
           type: 'string'
           title: 'Start time'
-          description: 'Start time'
+          description: 'Start time and date of your meeting in UTC'
         itemEnd:
           type: 'string'
           title: 'End time'
-          description: 'End time'
+          description: 'End time and date of your meeting in UTC'
         itemLocation:
           type: 'string'
           title: 'Location'
