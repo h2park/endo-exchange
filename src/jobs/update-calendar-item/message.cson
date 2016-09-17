@@ -1,0 +1,42 @@
+{
+  type: 'object'
+  title: 'Update Calendar Item'
+  'x-group-name': 'Set'
+  required: ['data']
+  properties:
+    data:
+      type: 'object'
+      required: ['Id', 'changeKey']
+      properties:
+        Id:
+          type: 'string'
+          title: 'Item Id'
+          description: 'Id of your Item obtained from getItems'
+        changeKey:
+          type: 'string'
+          title: 'Change Key'
+          description: 'Change Key of your Item obtained from getItems'
+        itemSubject:
+          type: 'string'
+          title: 'Subject'
+          description: 'Subject'
+        itemStart:
+          type: 'string'
+          title: 'Start time'
+          description: 'Start time and date for your meeting in UTC'
+        itemEnd:
+          type: 'string'
+          title: 'End time'
+          description: 'Start time and date for your meeting in UTC'
+        itemAttendees:
+          title: 'Attendees'
+          type: 'array'
+          items:
+            format: 'email'
+            title: 'Email'
+            type: 'string'
+        itemLocation:
+          type: 'string'
+          title: 'Location'
+          description: 'Location'
+}
