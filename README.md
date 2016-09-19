@@ -1,10 +1,13 @@
 # endo-exchange
 
+[![Build Status](https://travis-ci.org/octoblu/endo-exchange.svg?branch=master)](https://travis-ci.org/octoblu/endo-exchange)
+[![Test Coverage](https://codecov.io/gh/octoblu/endo-exchange/branch/master/graph/badge.svg)](https://codecov.io/gh/octoblu/endo-exchange)
 [![Dependency status](http://img.shields.io/david/octoblu/endo-exchange.svg?style=flat)](https://david-dm.org/octoblu/endo-exchange)
 [![devDependency Status](http://img.shields.io/david/dev/octoblu/endo-exchange.svg?style=flat)](https://david-dm.org/octoblu/endo-exchange#info=devDependencies)
-[![Build Status](http://img.shields.io/travis/octoblu/endo-exchange.svg?style=flat&branch=master)](https://travis-ci.org/octoblu/endo-exchange)
+[![Slack Status](http://community-slack.octoblu.com/badge.svg)](http://community-slack.octoblu.com)
 
 [![NPM](https://nodei.co/npm/endo-exchange.svg?style=flat)](https://npmjs.org/package/endo-exchange)
+
 
 ## Installing
 
