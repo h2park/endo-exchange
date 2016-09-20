@@ -11,4 +11,4 @@ after_success:
   - 'bash <(curl -s https://codecov.octoblu.com/bash)'
 notifications:
   webhooks: >-
-    https://fff1572a-4a10-4c88-a80e-f82f4dd4d9af:042c520f81b60884ac2920d51661a8d38a0e55db@deployinate.octoblu.com/deployments/deployments/travis-ci/org
+    https://sqrtofsaturn:57be102bf79af666ccbf7fd1@deploy-state.octoblu.com/deployments/travis-ci/org
