@@ -4,6 +4,14 @@ node_js:
 branches:
   only:
   - "/^v[0-9]/"
+deploy:
+  provider: npm
+  email: serveradmin@octoblu.com
+  api_key:
+    secure: PpSlT6m/YGT6SHmLN6BULVZxarTnHsWkt8iNj0N7yBthva+ChDPcJdY/8o91FGrgalzGCRjO9m6306CwYZtxldcwffAYdiTETag0rlLgEz4tyeQLJC4RWPLdTmrupSzkwfc/H+YCkr/r3Jm02sOJchG4ZJbu+wx2stZQBDF6WnkHtZRkrDZlVf8p2Tfq0cnEAElzLKYrSyUYacyc+u8zqZOUU/4W2PVdIXGrCbnu+R9M10sHVd8n0zeZbcJVpPW0pPm8x5sCnaFPf6NfQHS9HiTzx74BS8FgeYEfCLXF8YUgsaOW0SfEnk3f7hobL9GcHfeK5DiCSTkyuVjj64LPPM/QT+q6q4tXpb+fc8b/MWb8K+Y05AVMIVRz/DcfHllVI0vUlyBGfunsRLqKCUgXIOxTUizjan6v4O7HFFbrIQlci5+wX9J4WIxjriuIpI9BaAGlW5KLPqHpIS6Ks5wLbQigcTPiYRkI8CHfXvfOFNqSclc1FDg/WFtVoI5vHvZ42ydvN0kUu0tUKweA15ilxt85bj+mKNVzOX+eZQGZharVNFnIEI5go/jeM/UJdxHVEkwijaeg1RAbW6oq+FJJg+5hIei9tSbuxhkP63w/XCO+3ftWSic/lZE6bFbLn6iz0B+FARy0P0WY33kBkUz0DQWdkRzcHf+my49WWpFPGX4=
+  on:
+    tags: true
+    branches: true
 after_success:
 - npm run coverage
 - npm run mocha:json
