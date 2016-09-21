@@ -12,7 +12,7 @@ class CreateCalendarItem
   do: ({data}, callback) =>
     return callback @_userError(422, 'data is required') unless data?
 
-    @bourse.createCalendarItem data, (error, results) =>
+    @bourse.createItem data, (error, results) =>
       return callback @_userError(422, 'data is required') unless data?
       return callback @_userError(422, 'Subject is required') unless data.itemSubject?
       return callback @_userError(422, 'Body is required') unless data.itemBody?
