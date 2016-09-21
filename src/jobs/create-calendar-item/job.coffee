@@ -14,12 +14,12 @@ class CreateCalendarItem
 
     @bourse.createItem data, (error, results) =>
       return callback @_userError(422, 'data is required') unless data?
-      return callback @_userError(422, 'Subject is required') unless data.itemSubject?
-      return callback @_userError(422, 'Body is required') unless data.itemBody?
-      return callback @_userError(422, 'Start time is required') unless data.itemStart?
-      return callback @_userError(422, 'End time is required') unless data.itemEnd?
-      return callback @_userError(422, 'Attendees are required') unless data.itemAttendees?
-      return callback @_userError(422, 'Location is required') unless data.itemLocation?
+      return callback @_userError(422, 'Subject is required') unless data.subject?
+      return callback @_userError(422, 'Body is required') unless data.body?
+      return callback @_userError(422, 'Start time is required') unless data.start?
+      return callback @_userError(422, 'End time is required') unless data.end?
+      return callback @_userError(422, 'Attendees are required') unless data.attendees?
+      return callback @_userError(422, 'Location is required') unless data.location?
       return callback null, {
         metadata:
           code: 200

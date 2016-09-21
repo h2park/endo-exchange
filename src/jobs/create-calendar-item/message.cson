@@ -7,22 +7,22 @@
     data:
       type: 'object'
       required: [
-        'itemTimeZone',
-        'itemSendTo',
-        'itemSubject',
-        'itemBody',
-        'itemAttendees',
-        'itemStart',
-        'itemEnd',
-        'itemLocation'
+        'timeZone',
+        'sendTo',
+        'subject',
+        'body',
+        'attendees',
+        'start',
+        'end',
+        'location'
       ]
       properties:
-        itemTimeZone:
+        timeZone:
           type: 'string'
           title: 'Timezone'
           description: 'Timezone'
           default: 'Pacific Standard Time'
-        itemSendTo:
+        sendTo:
           type: 'string'
           title: 'Send to'
           description: 'Configure how meeting invitations or cancellations are handled when a meeting is updated'
@@ -34,37 +34,37 @@
             'SendToChangedAndSaveCopy'
           ]
           default: 'SendOnlyToAll'
-        itemSubject:
+        subject:
           type: 'string'
           title: 'Subject'
           description: 'Subject'
-        itemBody:
+        body:
           type: 'string'
           title: 'Body'
           description: 'Body'
-        itemAttendees:
+        attendees:
           title: 'Attendees'
           type: 'array'
           items:
             format: 'email'
             title: 'Email'
             type: 'string'
-        itemReminder:
+        reminder:
           type: 'string'
           title: 'Reminder'
           description: 'Reminder time and date for your meeting in UTC'
           default: '2016-09-01T00:00:00Z'
-        itemStart:
+        start:
           type: 'string'
           title: 'Start time'
           description: 'Start time and date of your meeting in UTC'
           default: '2016-09-01T00:00:00Z'
-        itemEnd:
+        end:
           type: 'string'
           title: 'End time'
           description: 'End time and date of your meeting in UTC'
           default: '2016-09-10T00:00:00Z'
-        itemLocation:
+        location:
           type: 'string'
           title: 'Location'
           description: 'Location'
