@@ -15,8 +15,8 @@ class Exchange
     @connectionOptions = {protocol, hostname, port, @username, @password}
     @bourse = new Bourse @connectionOptions
 
-  getCalendar: ({distinguisedFolderId}, callback) =>
-    @bourse.getCalendar {distinguisedFolderId}, (error, response) =>
+  getCalendar: ({distinguishedFolderId}, callback) =>
+    @bourse.getCalendar {distinguishedFolderId}, (error, response) =>
       return callback error if error?
       return callback null, {
         metadata:

@@ -13,7 +13,7 @@ class CreateCalendarItem
     return callback @_userError(422, 'data is required') unless data?
 
     console.log 'data:', data
-    @bourse.updateCalendarItem data, (error, results) =>
+    @bourse.updateItem data, (error, results) =>
       return callback @_userError(422, 'data is required') unless data?
       return callback null, {
         metadata:

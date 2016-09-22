@@ -16,26 +16,26 @@
           type: 'string'
           title: 'Change Key'
           description: 'Change Key of your Item obtained from getItems'
-        itemSubject:
+        subject:
           type: 'string'
           title: 'Subject'
           description: 'Subject'
-        itemStart:
+        start:
           type: 'string'
           title: 'Start time'
           description: 'Start time and date for your meeting in UTC'
-        itemEnd:
+        end:
           type: 'string'
           title: 'End time'
           description: 'Start time and date for your meeting in UTC'
-        itemAttendees:
+        attendees:
           title: 'Attendees'
           type: 'array'
           items:
             format: 'email'
             title: 'Email'
             type: 'string'
-        itemLocation:
+        location:
           type: 'string'
           title: 'Location'
           description: 'Location'

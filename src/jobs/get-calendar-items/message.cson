@@ -6,9 +6,9 @@
   properties:
     data:
       type: 'object'
-      required: ['distinguisedFolderId']
+      required: ['distinguishedFolderId']
       properties:
-        distinguisedFolderId:
+        distinguishedFolderId:
           type: 'string'
           title: 'Folder Id'
           default: 'calendar'
