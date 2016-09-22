@@ -11,7 +11,7 @@ class DeleteCalendarItem
 
   do: ({data}, callback) =>
     return callback @_userError(422, 'data is required') unless data?
-    @bourse.deleteCalendarItem data, (error, results) =>
+    @bourse.deleteItem data, (error, results) =>
       return callback error if error?
       return callback null, {
         metadata:
