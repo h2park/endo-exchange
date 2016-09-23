@@ -1,5 +1,4 @@
 http        = require 'http'
-_           = require 'lodash'
 Bourse      = require 'bourse'
 
 class CreateCalendarItem
@@ -7,14 +6,13 @@ class CreateCalendarItem
     {hostname, domain} = encrypted.secrets
     {username, password} = encrypted.secrets.credentials
 
-    @bourse = new Bourse {hostname, username, password}
+    @bourse = new Bourse {hostname, domain, username, password}
 
   do: ({data}, callback) =>
     return callback @_userError(422, 'data is required') unless data?
 
-    console.log 'data:', data
     @bourse.updateItem data, (error, results) =>
-      return callback @_userError(422, 'data is required') unless data?
+      return callback error if error?
       return callback null, {
         metadata:
           code: 200
