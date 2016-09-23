@@ -1,7 +1,7 @@
 http        = require 'http'
 Bourse      = require 'bourse'
 
-class CreateCalendarItem
+class UpdateCalendarItem
   constructor: ({encrypted, @auth, @userDeviceUuid}) ->
     {hostname, domain} = encrypted.secrets
     {username, password} = encrypted.secrets.credentials
@@ -25,4 +25,4 @@ class CreateCalendarItem
     error.code = code
     return error
 
-module.exports = CreateCalendarItem
+module.exports = UpdateCalendarItem
