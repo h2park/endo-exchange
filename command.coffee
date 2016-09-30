@@ -4,6 +4,7 @@ path            = require 'path'
 Endo            = require 'endo-core'
 OctobluStrategy = require 'endo-core/octoblu-strategy'
 MessageHandler  = require 'endo-core/message-handler'
+SigtermHandler  = require 'sigterm-handler'
 ApiStrategy     = require './src/api-strategy'
 
 MISSING_SERVICE_URL = 'Missing required environment variable: ENDO_EXCHANGE_SERVICE_URL'
@@ -47,10 +48,8 @@ class Command
       {address,port} = server.address()
       console.log "Server listening on #{address}:#{port}"
 
-    process.on 'SIGTERM', =>
-      console.log 'SIGTERM received, shutting down'
-      server.stop =>
-        process.exit 0
+    sigtermHandler = new SigtermHandler
+    sigtermHandler.register server.stop
 
 command = new Command()
 command.run()
