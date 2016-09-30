@@ -32,9 +32,9 @@
           title: 'Attendees'
           type: 'array'
           items:
-            format: 'email'
-            title: 'Email'
             type: 'string'
+            title: 'Email'
+            format: 'email'
         location:
           type: 'string'
           title: 'Location'

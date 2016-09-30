@@ -1,0 +1,6 @@
+{
+  angular: [
+    'data.start'
+    'data.end'
+  ]
+}

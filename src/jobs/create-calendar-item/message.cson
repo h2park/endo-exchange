@@ -11,7 +11,6 @@
         'sendTo',
         'subject',
         'body',
-        'attendees',
         'start',
         'end',
         'location'

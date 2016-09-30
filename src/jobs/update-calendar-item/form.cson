@@ -1,5 +1,16 @@
 {
   angular: [
-    'data'
+    'data.Id'
+    'data.changeKey'
+    'data.subject'
+    'data.start'
+    'data.end'
+    'data.location'
+    {
+      key: 'data.attendees'
+      type: 'array'
+      startEmpty: true
+      add: "Add Attendee"
+    }
   ]
 }

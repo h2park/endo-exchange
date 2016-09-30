@@ -1,0 +1,21 @@
+{
+  type: 'object'
+  title: 'Get Calendar Items in Range'
+  'x-group-name': 'Get'
+  required: ['data']
+  properties:
+    data:
+      type: 'object'
+      required: ['start', 'end']
+      properties:
+        start:
+          type: 'string'
+          title: 'Start of range'
+          description: 'Return entries starting from this time'
+          default: '2016-09-01T00:00:00Z'
+        end:
+          type: 'string'
+          title: 'End of range'
+          description: 'Return entries ending at this time'
+          default: '2016-09-10T00:00:00Z'
+}

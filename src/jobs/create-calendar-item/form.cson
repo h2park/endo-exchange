@@ -1,5 +1,18 @@
 {
   angular: [
-    'data'
+    'data.Id'
+    'data.subject'
+    'data.sendTo'
+    'data.body'
+    'data.start'
+    'data.end'
+    'data.timeZone'
+    'data.location'
+    {
+      key: 'data.attendees'
+      type: 'array'
+      startEmpty: true
+      add: "Add Attendee"
+    }
   ]
 }
