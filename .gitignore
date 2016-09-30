@@ -29,3 +29,5 @@ node_modules
 meshblu.json
 environment.cson
 .nyc_output
+
+tmp

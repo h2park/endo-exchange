@@ -9,12 +9,14 @@ ApiStrategy     = require './src/api-strategy'
 MISSING_SERVICE_URL = 'Missing required environment variable: ENDO_EXCHANGE_SERVICE_URL'
 MISSING_MANAGER_URL = 'Missing required environment variable: ENDO_EXCHANGE_MANAGER_URL'
 MISSING_APP_OCTOBLU_HOST = 'Missing required environment variable: APP_OCTOBLU_HOST'
+MISSING_ENDO_EXCHANGE_STATIC_SCHEMAS_PATH = 'Missing required environment variable: ENDO_EXCHANGE_STATIC_SCHEMAS_PATH'
 
 class Command
   getOptions: =>
     throw new Error MISSING_SERVICE_URL if _.isEmpty process.env.ENDO_EXCHANGE_SERVICE_URL
     throw new Error MISSING_MANAGER_URL if _.isEmpty process.env.ENDO_EXCHANGE_MANAGER_URL
     throw new Error MISSING_APP_OCTOBLU_HOST if _.isEmpty process.env.APP_OCTOBLU_HOST
+    throw new Error MISSING_ENDO_EXCHANGE_STATIC_SCHEMAS_PATH if _.isEmpty process.env.ENDO_EXCHANGE_STATIC_SCHEMAS_PATH
 
     meshbluConfig   = new MeshbluConfig().toJSON()
     apiStrategy     = new ApiStrategy process.env
@@ -44,6 +46,11 @@ class Command
 
       {address,port} = server.address()
       console.log "Server listening on #{address}:#{port}"
+
+    process.on 'SIGTERM', =>
+      console.log 'SIGTERM received, shutting down'
+      server.stop =>
+        process.exit 0
 
 command = new Command()
 command.run()
