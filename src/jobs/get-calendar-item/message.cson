@@ -1,0 +1,15 @@
+{
+  type: 'object'
+  title: 'Get Calendar Item'
+  'x-group-name': 'Get'
+  required: ['data']
+  properties:
+    data:
+      type: 'object'
+      required: ['itemId']
+      properties:
+        itemId:
+          type: 'string'
+          title: 'Item Id'
+          default: ''
+}
