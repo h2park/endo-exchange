@@ -55,8 +55,8 @@ class ExchangeStrategy extends PassportStrategy
     @_formSchemaUrl
 
   getUserFromExchange: ({hostname, domain, username, password}, callback) =>
-    @bourse = new Bourse({ hostname, domain, username, password })
-    @bourse.whoami (error, user) =>
+    bourse = new Bourse({ hostname, domain, username, password })
+    bourse.whoami (error, user) =>
       return callback error if error?
       callback null, {
         id: "#{username}@#{hostname}"
