@@ -15,8 +15,8 @@ class CreateCalendarItem
       return callback error if error?
       return callback null, {
         metadata:
-          code: 200
-          status: http.STATUS_CODES[200]
+          code: 201
+          status: http.STATUS_CODES[201]
         data: results
       }
 

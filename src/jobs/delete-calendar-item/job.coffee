@@ -1,6 +1,6 @@
+Bourse      = require 'bourse'
 http        = require 'http'
 _           = require 'lodash'
-Bourse      = require 'bourse'
 
 class DeleteCalendarItem
   constructor: ({encrypted, @auth, @userDeviceUuid}) ->
@@ -10,14 +10,14 @@ class DeleteCalendarItem
     @bourse = new Bourse {hostname, username, password}
 
   do: ({data}, callback) =>
-    return callback @_userError(422, 'data is required') unless data?
+    return callback @_userError(422, 'data is required.') unless data?
+
     @bourse.deleteItem data, (error, results) =>
       return callback error if error?
       return callback null, {
         metadata:
-          code: 200
-          status: http.STATUS_CODES[200]
-        data: results.Envelope.Body.CreateItemResponse.ResponseMessages.CreateItemResponseMessage
+          code: 204
+          status: http.STATUS_CODES[204]
       }
 
   _userError: (code, message) =>
