@@ -45,7 +45,6 @@
           title: 'Attendees'
           type: 'array'
           items:
-            format: 'email'
             title: 'Email'
             type: 'string'
         reminder:

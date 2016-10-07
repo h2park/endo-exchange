@@ -34,7 +34,6 @@
           items:
             type: 'string'
             title: 'Email'
-            format: 'email'
         location:
           type: 'string'
           title: 'Location'
