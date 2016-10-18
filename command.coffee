@@ -37,16 +37,19 @@ class Command
       serviceUrl:      process.env.ENDO_EXCHANGE_SERVICE_URL
       userDeviceManagerUrl: process.env.ENDO_EXCHANGE_MANAGER_URL
       staticSchemasPath: process.env.ENDO_EXCHANGE_STATIC_SCHEMAS_PATH
+      useFirehose: process.env.ENDO_EXCHANGE_USE_FIREHOSE
+      skipExpress: process.env.ENDO_EXCHANGE_SKIP_EXPRESS
       skipRedirectAfterApiAuth: true
     }
 
   run: =>
-    server = new Endo @getOptions()
+    options = @getOptions()
+    server = new Endo options
     server.run (error) =>
       throw error if error?
-
-      {address,port} = server.address()
-      console.log "Server listening on #{address}:#{port}"
+      unless options.skipExpress
+        {address,port} = server.address()
+        console.log "Server listening on #{address}:#{port}"
 
     sigtermHandler = new SigtermHandler
     sigtermHandler.register server.stop
