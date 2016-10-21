@@ -15,8 +15,8 @@ class GetCalendarItemsInRange
 
     {start, end} = data
     extendedProperties =
-      'X-genisys-meeting-id': true
-      
+      'genisysMeetingId': true
+
     @bourse.getCalendarItemsInRange {start, end, extendedProperties}, (error, items) =>
       return callback error if error?
       return callback null, {
