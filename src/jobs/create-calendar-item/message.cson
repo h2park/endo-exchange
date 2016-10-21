@@ -18,7 +18,7 @@
       properties:
         extendedProperties:
           type: 'object'
-          properties
+          properties:
             genisysMeetingId:
               type: 'string'
               title: 'Meeting Id'
