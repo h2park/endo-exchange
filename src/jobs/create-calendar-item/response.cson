@@ -8,6 +8,9 @@
         type: 'object'
         required: ['createdAt', 'type', 'username']
         properties:
+          meetingId:
+            type: 'string'
+            description: 'Genisys Meeting Id'
           createdAt:
             type: 'string'
             format: 'date-time'

@@ -16,6 +16,13 @@
         'location'
       ]
       properties:
+        extendedProperties:
+          type: 'object'
+          properties
+            genisysMeetingId:
+              type: 'string'
+              title: 'Meeting Id'
+              description: 'Genisys Meeting Id'
         timeZone:
           type: 'string'
           title: 'Timezone'
