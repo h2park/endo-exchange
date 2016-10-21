@@ -14,8 +14,10 @@ class GetCalendarItemsInRange
     return callback @_userError(422, 'Missing required parameter: data.end') unless _.has data, 'end'
 
     {start, end} = data
-
-    @bourse.getCalendarItemsInRange {start, end}, (error, items) =>
+    extendedProperties =
+      'X-genisys-meeting-id': true
+      
+    @bourse.getCalendarItemsInRange {start, end, extendedProperties}, (error, items) =>
       return callback error if error?
       return callback null, {
         metadata:
