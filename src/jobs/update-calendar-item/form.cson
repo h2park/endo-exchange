@@ -1,6 +1,6 @@
 {
   angular: [
-    'data.Id'
+    'data.itemId'
     'data.changeKey'
     'data.subject'
     'data.start'

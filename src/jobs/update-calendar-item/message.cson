@@ -8,7 +8,7 @@
       type: 'object'
       required: ['Id', 'changeKey']
       properties:
-        Id:
+        itemId:
           type: 'string'
           title: 'Item Id'
           description: 'Id of your Item obtained from getItems'
