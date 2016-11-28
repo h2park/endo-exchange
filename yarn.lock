@@ -265,9 +265,9 @@ boom@2.x.x:
   dependencies:
     hoek "2.x.x"
 
-bourse@^10.0.1:
-  version "10.0.1"
-  resolved "https://registry.yarnpkg.com/bourse/-/bourse-10.0.1.tgz#4cd7b8869cb129b1b8c83d681d1a6f4be9e138cc"
+bourse@^10.1.0:
+  version "10.1.0"
+  resolved "https://registry.yarnpkg.com/bourse/-/bourse-10.1.0.tgz#ce9733304bac14a3b38e240810f6be4aaf23cd57"
   dependencies:
     async "^2.0.1"
     cheerio "^0.22.0"
@@ -278,6 +278,7 @@ bourse@^10.0.1:
     lodash "^4.15.0"
     moment "^2.14.1"
     request "^2.74.0"
+    urlregexp "^1.0.2"
     xml-nodes "^0.1.5"
     xml-objects "^1.0.1"
     xml2js "^0.4.17"
@@ -2715,6 +2716,10 @@ underscore@~1.7.0:
 unpipe@~1.0.0, unpipe@1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/unpipe/-/unpipe-1.0.0.tgz#b2bf4ee8514aae6165b4817829d21b2ef49904ec"
+
+urlregexp@^1.0.2:
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/urlregexp/-/urlregexp-1.0.2.tgz#a2047c08b261d32e838a51e6dfff1e6d2bbc5000"
 
 util-deprecate@~1.0.1:
   version "1.0.2"
