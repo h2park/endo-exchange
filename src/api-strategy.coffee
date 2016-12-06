@@ -32,7 +32,7 @@ class ExchangeStrategy extends PassportStrategy
       return @fail 404 unless user?
       @success {
         id:       user.id
-        username: user.name
+        username: username
         secrets:
           hostname: hostname
           domain:   domain
