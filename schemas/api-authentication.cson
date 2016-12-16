@@ -1,3 +1,4 @@
+title: "Enter Citrix Credential"
 type: "object"
 properties:
   hostname:
