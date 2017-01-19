@@ -23,6 +23,10 @@
               type: 'string'
               title: 'Meeting Id'
               description: 'Genisys Meeting Id'
+            genisysSearchableId:
+              type: 'string'
+              title: 'Searchable Id'
+              description: 'Genisys Searchable Id'
         timeZone:
           type: 'string'
           title: 'Timezone'

@@ -2,6 +2,7 @@
   angular: [
     'data.Id'
     'data.extendedProperties.genisysMeetingId'
+    'data.extendedProperties.genisysSearchableId'
     'data.subject'
     'data.sendTo'
     'data.body'
