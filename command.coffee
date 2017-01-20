@@ -11,6 +11,7 @@ MISSING_SERVICE_URL = 'Missing required environment variable: ENDO_EXCHANGE_SERV
 MISSING_MANAGER_URL = 'Missing required environment variable: ENDO_EXCHANGE_MANAGER_URL'
 MISSING_APP_OCTOBLU_HOST = 'Missing required environment variable: APP_OCTOBLU_HOST'
 MISSING_ENDO_EXCHANGE_STATIC_SCHEMAS_PATH = 'Missing required environment variable: ENDO_EXCHANGE_STATIC_SCHEMAS_PATH'
+MISSING_REDIS_URI = 'Missing required environment variable: REDIS_URI'
 
 class Command
   getOptions: =>
@@ -18,6 +19,7 @@ class Command
     throw new Error MISSING_MANAGER_URL if _.isEmpty process.env.ENDO_EXCHANGE_MANAGER_URL
     throw new Error MISSING_APP_OCTOBLU_HOST if _.isEmpty process.env.APP_OCTOBLU_HOST
     throw new Error MISSING_ENDO_EXCHANGE_STATIC_SCHEMAS_PATH if _.isEmpty process.env.ENDO_EXCHANGE_STATIC_SCHEMAS_PATH
+    throw new Error MISSING_REDIS_URI if _.isEmpty process.env.REDIS_URI
 
     meshbluConfig   = new MeshbluConfig().toJSON()
     apiStrategy     = new ApiStrategy process.env
@@ -39,6 +41,7 @@ class Command
       staticSchemasPath: process.env.ENDO_EXCHANGE_STATIC_SCHEMAS_PATH
       useFirehose: process.env.ENDO_EXCHANGE_USE_FIREHOSE
       skipExpress: process.env.ENDO_EXCHANGE_SKIP_EXPRESS
+      redisUri: process.env.REDIS_URI
       skipRedirectAfterApiAuth: true
     }
 

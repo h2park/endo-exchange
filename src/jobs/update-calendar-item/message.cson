@@ -6,7 +6,7 @@
   properties:
     data:
       type: 'object'
-      required: ['Id', 'changeKey']
+      required: ['itemId', 'changeKey']
       properties:
         itemId:
           type: 'string'
