@@ -12,6 +12,7 @@ class CreateCalendarItem
     {username, password} = encrypted.secrets.credentials
 
     @bourse = new Bourse {hostname, domain, username, password}
+    @redisUri ?= process.env.REDIS_URI
 
   getRedlockClient: (callback) =>
     return callback null, cachedRedlockClient if cachedRedlockClient?
