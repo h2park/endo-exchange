@@ -46,7 +46,7 @@ class CreateCalendarItem
         genisysSearchableId: true
       }
 
-      @bourse.findItemsByExtendedProperty { Id: 'calendar', key: 'genisysSearchableId', value: searchableId, extendedProperties }, (error, items) =>
+      @bourse.findItemsByExtendedProperty { Id: 'calendar', key: 'genisys-searchable-id', value: searchableId, extendedProperties }, (error, items) =>
         return unlockCallback error if error?
 
         if _.isEmpty items
