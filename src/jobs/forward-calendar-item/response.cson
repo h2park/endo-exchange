@@ -1,0 +1,9 @@
+{
+  type: 'object'
+  required: ['metadata', 'data']
+  properties:
+    data:
+      type: 'array'
+      items:
+        type: 'object'
+}

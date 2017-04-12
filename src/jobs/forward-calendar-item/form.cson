@@ -1,0 +1,7 @@
+{
+  angular: [
+    'data.itemId'
+    'data.changeKey'
+    'data.email'
+  ]
+}

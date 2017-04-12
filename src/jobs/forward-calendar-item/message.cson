@@ -1,0 +1,23 @@
+{
+  type: 'object'
+  title: 'Forward Calendar Item'
+  'x-group-name': 'Forward'
+  required: ['data']
+  properties:
+    data:
+      type: 'object'
+      required: ['itemId', 'changeKey', 'email']
+      properties:
+        itemId:
+          type: 'string'
+          title: 'Item Id'
+          description: 'Id of your Item obtained from getItems'
+        changeKey:
+          type: 'string'
+          title: 'Change Key'
+          description: 'Change Key of your Item obtained from getItems'
+        email:
+          type: 'string'
+          title: 'Email Address'
+          description: 'Email address to forward Item to'
+}
