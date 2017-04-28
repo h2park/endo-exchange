@@ -8,7 +8,7 @@ class GetCalendarItemsInRange
     {username, password} = encrypted.secrets.credentials
 
     @bourse = new Bourse {hostname, domain, username, password}
-    @doSlow = _.throttle @do, 1000, {leading=false}
+    @doSlow = _.throttle @do, 1000, {leading:false}
 
   do: ({data}, callback) =>
     return callback @_userError(422, 'Missing required parameter: data.start') unless _.has data, 'start'

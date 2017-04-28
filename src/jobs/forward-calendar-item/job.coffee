@@ -8,7 +8,7 @@ class ForwardCalendarItem
     {username, password} = encrypted.secrets.credentials
 
     @bourse = new Bourse {hostname, domain, username, password}
-    @doSlow = _.throttle @do, 1000, {leading=false}
+    @doSlow = _.throttle @do, 1000, {leading:false}
 
   do: ({data}, callback) =>
     return callback @_userError(422, 'data is required') unless data?
