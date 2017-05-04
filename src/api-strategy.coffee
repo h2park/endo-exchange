@@ -26,7 +26,8 @@ class ExchangeStrategy extends PassportStrategy
     {bearerToken} = req.meshbluAuth
     {hostname, domain, username, password} = req.body
     return @redirect @authorizationUrl({bearerToken}) unless password?
-    @getUserFromExchange {hostname, domain, username, password}, (error, user) =>
+    @_retry @getUserFromExchange, {hostname, domain, username, password}, (error, user) =>
+      console.error error.stack if error?
       return @fail 401 if error? && error.code < 500
       return @error error if error?
       return @fail 404 unless user?
@@ -62,6 +63,9 @@ class ExchangeStrategy extends PassportStrategy
         id: "#{username}@#{hostname}"
         name: user.name
       }
+
+  _retry: (fn, options, callback) =>
+    async.retry 5, async.apply(fn, options), callback
 
   postUrl: ->
     {protocol, hostname, port} = url.parse @_callbackUrl
