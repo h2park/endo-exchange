@@ -1,6 +1,7 @@
 http        = require 'http'
 Bourse      = require 'bourse'
 _           = require 'lodash'
+async       = require 'async'
 
 class DeleteCalendarItem
   constructor: ({encrypted, @auth, @userDeviceUuid}) ->
@@ -8,23 +9,29 @@ class DeleteCalendarItem
     {username, password} = encrypted.secrets.credentials
 
     @bourse = new Bourse {hostname, username, password}
-    @doSlow = _.throttle @do, 1000, {leading:false}
 
-  do: ({data}, callback) =>
+  do: (options, callback) =>
+    retryOptions =
+      tries: 10
+      interval: 1000
+      errorFilter: (error) =>
+        console.error error
+        return !(error.code < 500)
+
+    async.retry retryOptions, (next) =>
+      @_do options, next
+    , callback
+
+  _do: ({data}, callback) =>
     return callback @_userError(422, 'data is required.') unless data?
 
     @bourse.deleteItem data, (error, results) =>
-      return @_processError {error,data}, callback if error?
+      return callback error if error?
       return callback null, {
         metadata:
           code: 204
           status: http.STATUS_CODES[204]
       }
-
-  _processError: ({error, data}, callback) =>
-    return callback error if error.code < 500
-    console.error "#{error.code}: #{error.message}"
-    return @doSlow {data}, callback
 
   _userError: (code, message) =>
     error = new Error message
