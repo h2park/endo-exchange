@@ -1,6 +1,7 @@
 _ = require 'lodash'
 PassportStrategy = require 'passport-strategy'
 url = require 'url'
+async = require 'async'
 Bourse = require 'bourse'
 
 class ExchangeStrategy extends PassportStrategy

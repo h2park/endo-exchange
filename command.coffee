@@ -43,6 +43,7 @@ class Command
       skipExpress: process.env.ENDO_EXCHANGE_SKIP_EXPRESS
       redisUri: process.env.REDIS_URI
       skipRedirectAfterApiAuth: true
+      healthcheckService: healthcheck: (callback) => callback(null, healthy: true)
     }
 
   run: =>
