@@ -38,4 +38,8 @@
           type: 'string'
           title: 'Location'
           description: 'Location'
+        sendMeetingInvitationsOrCancellations:
+          type: 'string'
+          title: 'Send Meeting Invitations Type'
+          default: 'SendToAllAndSaveCopy'
 }
