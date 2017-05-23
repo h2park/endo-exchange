@@ -25,6 +25,7 @@ class UpdateCalendarItem
   _do: ({data}, callback) =>
     return callback @_userError(422, 'data is required') unless data?
     return callback @_userError(422, 'data.changeKey is required') unless data.changeKey?
+    data.sendMeetingInvitationsOrCancellations ?= 'SendToAllAndSaveCopy'
 
     @bourse.updateItem data, (error, results) =>
       return callback error if error?
