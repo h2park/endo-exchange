@@ -1,6 +1,6 @@
 {
   "name": "endo-exchange",
-  "version": "8.4.5",
+  "version": "8.4.6",
   "description": "Put some description here",
   "keywords": [],
   "homepage": "https://github.com/octoblu/endo-exchange",
@@ -42,7 +42,7 @@
     "cookie-session": "^2.0.0-beta.1",
     "cors": "^2.8.3",
     "debug": "^2.6.6",
-    "endo-core": "^18.0.4",
+    "endo-core": "^18.1.0",
     "errorhandler": "^1.5.0",
     "express": "^4.15.2",
     "express-meshblu-auth": "^9.1.0",
