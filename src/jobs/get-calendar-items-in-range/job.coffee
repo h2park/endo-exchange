@@ -48,6 +48,7 @@ class GetCalendarItemsInRange
       {path} = URL.parse url
       return path.match /^\/.*\/[A-Z0-9]{8}$/
 
+    skypeUrls = _.map skypeUrls, 'url'
     meeting.joinOnlineMeetingUrl = _.first skypeUrls
     return meeting
 
