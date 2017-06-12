@@ -816,9 +816,9 @@ encodeurl@~1.0.1:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/encodeurl/-/encodeurl-1.0.1.tgz#79e3d58655346909fe6f0f45a5de68103b294d20"
 
-endo-core@^18.2.2:
-  version "18.2.2"
-  resolved "https://registry.yarnpkg.com/endo-core/-/endo-core-18.2.2.tgz#997467e5d51ff27a981222d5546af68f405b2393"
+endo-core@^18.2.3:
+  version "18.2.3"
+  resolved "https://registry.yarnpkg.com/endo-core/-/endo-core-18.2.3.tgz#51cf08bc70fe42c18a530ecb32d8220c3864823a"
   dependencies:
     "@octoblu/connect-http-signature" "^0.1.3"
     body-parser "^1.17.1"
