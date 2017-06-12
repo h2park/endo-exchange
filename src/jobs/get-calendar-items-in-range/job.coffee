@@ -1,6 +1,7 @@
 http        = require 'http'
 Bourse      = require 'bourse'
 _           = require 'lodash'
+URL         = require 'url'
 async       = require 'async'
 
 class GetCalendarItemsInRange
@@ -37,8 +38,18 @@ class GetCalendarItemsInRange
         metadata:
           code: 200
           status: http.STATUS_CODES[200]
-        data: items
+        data: _.map items, @_addJoinOnlineMeetingUrl
       }
+
+  _addJoinOnlineMeetingUrl: (meeting) =>
+    return meeting unless _.isEmpty meeting.joinOnlineMeetingUrl
+    skypeUrls = _.filter meeting.urls, ({url, hostname}={}) =>
+      return true if hostname == "meet.lync.com"
+      {path} = URL.parse url
+      return path.match /^\/.*\/[A-Z0-9]{8}$/
+
+    meeting.joinOnlineMeetingUrl = _.first skypeUrls
+    return meeting
 
   _userError: (code, message) =>
     error = new Error message
