@@ -23,7 +23,9 @@ class CreateCalendarItem
       cachedRedlockClient = new Redlock [client], retryCount: 150, retryDelay: 200
       callback null, cachedRedlockClient
 
-  createLock: ({ key, callback, timeout=30000 }, done) =>
+  createLock: ({ key, callback, timeout }, done) =>
+    timeout ?= 30000
+
     @getRedlockClient (error, redlock) =>
       return done error if error?
       redlock.lock key, timeout, (error, lock) =>

@@ -1,11 +1,10 @@
 http        = require 'http'
 Bourse      = require 'bourse'
-_           = require 'lodash'
 async       = require 'async'
 
 class GetCalendarItem
   constructor: ({encrypted, @auth, @userDeviceUuid}) ->
-    {hostname, domain} = encrypted.secrets
+    {hostname} = encrypted.secrets
     {username, password} = encrypted.secrets.credentials
 
     @bourse = new Bourse {hostname, username, password}
