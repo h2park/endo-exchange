@@ -21,13 +21,17 @@ class UpdateCalendarItem
     async.retry retryOptions, (next) =>
       @_do options, next
     , callback
+    return
 
   _do: ({data}, callback) =>
     return callback @_userError(422, 'data is required') unless data?
     return callback @_userError(422, 'data.changeKey is required') unless data.changeKey?
     data.sendMeetingInvitationsOrCancellations ?= 'SendToAllAndSaveCopy'
 
+    responded = false
     @bourse.updateItem data, (error, results) =>
+      console.error 'bourse already responded!' if responded
+      responded = true
       return callback error if error?
       return callback null, {
         metadata:
