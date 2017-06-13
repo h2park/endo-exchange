@@ -28,10 +28,7 @@ class UpdateCalendarItem
     return callback @_userError(422, 'data.changeKey is required') unless data.changeKey?
     data.sendMeetingInvitationsOrCancellations ?= 'SendToAllAndSaveCopy'
 
-    responded = false
     @bourse.updateItem data, (error, results) =>
-      console.error 'bourse already responded!' if responded
-      responded = true
       return callback error if error?
       return callback null, {
         metadata:

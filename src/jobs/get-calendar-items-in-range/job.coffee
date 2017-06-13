@@ -22,6 +22,7 @@ class GetCalendarItemsInRange
     async.retry retryOptions, (next) =>
       @_do options, next
     , callback
+    return
 
   _do: ({data}, callback) =>
     return callback @_userError(422, 'Missing required parameter: data.start') unless _.has data, 'start'

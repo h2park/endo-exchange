@@ -21,6 +21,7 @@ class ForwardCalendarItem
     async.retry retryOptions, (next) =>
       @_do options, next
     , callback
+    return
 
   _do: ({data}, callback) =>
     return callback @_userError(422, 'data is required') unless data?

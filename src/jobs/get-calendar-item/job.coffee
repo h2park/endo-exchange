@@ -22,6 +22,7 @@ class GetCalendarItem
     async.retry retryOptions, (next) =>
       @_do options, next
     , callback
+    return
 
   _do: ({data}, callback) =>
     return callback @_userError(422, 'data is required.') unless data?
@@ -44,7 +45,6 @@ class GetCalendarItem
       return path.match /^\/.*\/[A-Z0-9]{8}$/
 
     skypeUrls = _.map skypeUrls, 'url'
-    
     meeting.joinOnlineMeetingUrl = _.first skypeUrls
     return meeting
 
