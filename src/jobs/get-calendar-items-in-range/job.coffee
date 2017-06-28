@@ -46,8 +46,9 @@ class GetCalendarItemsInRange
     return meeting unless _.isEmpty meeting.joinOnlineMeetingUrl
     skypeUrls = _.filter meeting.urls, ({url, hostname}={}) =>
       return true if hostname == "meet.lync.com"
-      {path} = URL.parse url
-      return path.match /^\/.*\/[A-Z0-9]{8}$/
+      {pathname} = URL.parse url
+      return unless pathname?
+      return pathname.match /^\/.*\/[A-Z0-9]{8}$/
 
     skypeUrls = _.map skypeUrls, 'url'
     meeting.joinOnlineMeetingUrl = _.first skypeUrls
